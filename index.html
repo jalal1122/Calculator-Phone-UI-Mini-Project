@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator Mini Project SMIT Assignment</title>
+    <link href="./src/output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 flex justify-center items-center h-screen">
+    <div
+      class="w-[500px] h-[720px] mx-auto mt-10 bg-gray-200 rounded-xl relative"
+    >
+      <div class="top-row flex items-center justify-between rounded-t-xl p-3">
+        <span class="material-symbols-outlined" style="font-size: 40px">
+          calculate
+        </span>
+        <h1 class="text-3xl font-bold text-center">Calculator</h1>
+        <span
+          class="material-symbols-outlined cursor-pointer"
+          style="font-size: 40px"
+          onmouseover="document.querySelector('.greater-history').style.display = 'block'"
+        >
+          more_vert
+        </span>
+      </div>
+      <div class="calculator-body">
+        <div
+          class="screen h-55 mx-4 rounded-xl flex flex-col justify-between md:mt-5"
+        >
+          <div
+            class="history max-h-33 w-full text-right md:p-5 p-2 overflow-y-auto"
+          ></div>
+          <div class="result text-4xl font-bold text-right md:p-5 p-2">0</div>
+        </div>
+        <div class="buttons grid grid-cols-4 gap-4 p-5">
+          <button
+            class="bg-white rounded-lg p-4 text-orange-600 font-bold text-2xl"
+            onclick="clearScreen()"
+          >
+            AC
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 text-orange-600 font-bold text-2xl"
+            onclick="del()"
+          >
+            <span class="material-symbols-outlined"> backspace </span>
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 text-orange-600 font-bold text-2xl"
+            onclick="display('%')"
+          >
+            %
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 text-orange-600 font-bold text-2xl"
+            onclick="display('/')"
+          >
+            ÷
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 font-bold"
+            onclick="display('7')"
+          >
+            7
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 font-bold"
+            onclick="display('8')"
+          >
+            8
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 font-bold"
+            onclick="display('9')"
+          >
+            9
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 text-orange-600 font-bold text-2xl"
+            onclick="display('*')"
+          >
+            X
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 font-bold"
+            onclick="display('4')"
+          >
+            4
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 font-bold"
+            onclick="display('5')"
+          >
+            5
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 font-bold"
+            onclick="display('6')"
+          >
+            6
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 text-orange-600 font-bold text-2xl"
+            onclick="display('-')"
+          >
+            -
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 font-bold"
+            onclick="display('1')"
+          >
+            1
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 font-bold"
+            onclick="display('2')"
+          >
+            2
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 font-bold"
+            onclick="display('3')"
+          >
+            3
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 text-orange-600 font-bold text-2xl"
+            onclick="display('+')"
+          >
+            +
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 font-bold col-span-2"
+            onclick="display('0')"
+          >
+            0
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 text-2xl"
+            onclick="display('.')"
+          >
+            .
+          </button>
+          <button
+            class="bg-white rounded-lg p-4 text-orange-600 font-bold text-2xl"
+            onclick="calculate()"
+          >
+            =
+          </button>
+        </div>
+      </div>
+      <div
+        class="greater-history field-sizing-content bg-white font-bold p-2 rounded absolute top-13 right-6 hidden cursor-pointer"
+      >
+        History
+      </div>
+      <div
+        class="greater-history-container flex-col items-center justify-center bg-gray-50 rounded-2xl p-5 absolute top-15 right-5 md:h-[650px] md:w-[460px] overflow-y-auto hidden w-[280px]"
+      >
+        <button
+          class="font-bold absolute top-2 left-2 cursor-pointer p-2 bg-gray-200 rounded"
+          onclick="localStorage.removeItem('history'); document.querySelector('.greater-history-container ul').innerHTML = ''"
+        >
+          Clear History
+        </button>
+        <span
+          class="material-symbols-outlined absolute top-2 right-2 cursor-pointer"
+          onclick="document.querySelector('.greater-history-container').style.display = 'none'"
+        >
+          close
+        </span>
+        <ul class="text-right max-h-[600px]"></ul>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.2.1/math.js"
+      integrity="sha512-ZOpEWF/zdnWKFpyY0TMzmZGkhjM9Z4RkW/GMF9X9NtZ6bhDqzAlWfk7NwqHPD+WriepCt3Th6+4jl4w4wkQolA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>
